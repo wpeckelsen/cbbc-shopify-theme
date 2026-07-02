@@ -1,47 +1,54 @@
-{% comment %}
-  This section is used in the collection template to render collection page
-  listing all products within a collection.
+<div class="collection-page page-content">
+  <h1>{{ collection.title }}</h1>
 
-  https://shopify.dev/docs/storefronts/themes/architecture/templates/collection
-{% endcomment %}
+  {% if collection.description != blank %}
+    <p class="text-muted">{{ collection.description }}</p>
+  {% endif %}
 
-<h1>{{ collection.title }}</h1>
-
-<div class="collection-products">
   {% paginate collection.products by 20 %}
-    {% for product in collection.products %}
-      <div class="collection-product">
-        {% if product.featured_image %}
-          {% render 'image',
-            class: 'collection-product__image',
-            image: product.featured_image,
-            url: product.url,
-            width: 400,
-            height: 400,
-            crop: 'center'
-          %}
-        {% endif %}
-        <div class="collection-product__content">
-          <p>{{ product.title | escape | link_to: product.url }}</p>
-          <p>{{ product.price | money }}</p>
-        </div>
-      </div>
-    {% endfor %}
+    <div class="collection-grid" style="--columns: {{ section.settings.columns }}">
+      {% for product in collection.products %}
+        {% render 'product-card', product: product %}
+      {% endfor %}
+    </div>
 
-    {{ paginate | default_pagination }}
+    {% if paginate.pages > 1 %}
+      <div class="pagination">
+        {{ paginate | default_pagination }}
+      </div>
+    {% endif %}
   {% endpaginate %}
 </div>
 
 {% stylesheet %}
-  .collection-products {
+  .collection-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .collection-grid {
+      grid-template-columns: repeat(var(--columns, 4), 1fr);
+      gap: 1.25rem;
+    }
   }
 {% endstylesheet %}
 
 {% schema %}
 {
   "name": "t:general.collection",
-  "settings": []
+  "settings": [
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "t:sections.featured_products.settings.columns",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 4
+    }
+  ]
 }
 {% endschema %}

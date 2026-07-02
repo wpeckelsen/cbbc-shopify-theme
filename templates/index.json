@@ -9,12 +9,27 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "hello-world",
-      "settings": {}
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "heading": "Motorcycle accessories",
+        "subheading": "Quality gear and parts for every ride.",
+        "button_label": "Shop now",
+        "button_link": "shopify://collections/all"
+      }
+    },
+    "featured-products": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "Featured products",
+        "product_count": 8,
+        "columns": 4,
+        "button_label": "View all products"
+      }
     }
   },
   "order": [
-    "main"
+    "hero",
+    "featured-products"
   ]
 }

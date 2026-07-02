@@ -1,39 +1,155 @@
-<footer>
-  <div class="footer__copyright">
-    &copy;
-    {{ 'now' | date: '%Y' }}
-    {{ shop.name | link_to: routes.root_url }}, {{ powered_by_link }}
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <a href="{{ routes.root_url }}" class="footer__logo">
+        <img
+          src="{{ 'cbbcinc.png' | asset_url }}"
+          alt="{{ shop.name }}"
+          width="100"
+          height="40"
+          loading="lazy"
+        >
+      </a>
+      <p class="footer__tagline text-muted text-sm">{{ 'footer.tagline' | t }}</p>
+    </div>
+
+    <div class="footer__nav">
+      {% if section.settings.menu_1.links.size > 0 %}
+        <div class="footer__col">
+          <h3 class="footer__heading">{{ section.settings.menu_1.title }}</h3>
+          {% for link in section.settings.menu_1.links %}
+            <a class="footer__link" href="{{ link.url }}">{{ link.title }}</a>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if section.settings.menu_2.links.size > 0 %}
+        <div class="footer__col">
+          <h3 class="footer__heading">{{ section.settings.menu_2.title }}</h3>
+          {% for link in section.settings.menu_2.links %}
+            <a class="footer__link" href="{{ link.url }}">{{ link.title }}</a>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
   </div>
 
-  <div class="footer__links">
-    {% for link in section.settings.menu.links %}
-      {{ link.title | link_to: link.url }}
-    {% endfor %}
-  </div>
+  <div class="footer__bottom">
+    <p class="footer__copyright text-sm text-muted">
+      &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ 'footer.rights' | t }}
+    </p>
 
-  <div class="footer__payment">
     {% if section.settings.show_payment_icons %}
-      {% for type in shop.enabled_payment_types %}
-        {{ type | payment_type_svg_tag }}
-      {% endfor %}
+      <div class="footer__payment">
+        {% for type in shop.enabled_payment_types %}
+          {{ type | payment_type_svg_tag }}
+        {% endfor %}
+      </div>
     {% endif %}
   </div>
 </footer>
 
 {% stylesheet %}
-  footer {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
+  .footer {
+    background-color: var(--color-bg-secondary);
+    border-top: 1px solid var(--color-border);
+    margin-top: auto;
   }
-  footer a {
+
+  .footer__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 3rem var(--page-margin) 2rem;
+  }
+
+  .footer__brand {
+    max-width: 16rem;
+  }
+
+  .footer__logo {
+    display: inline-block;
     text-decoration: none;
-    color: var(--color-foreground);
   }
-  footer .footer__links,
-  footer .footer__payment {
+
+  .footer__logo img {
+    height: 2rem;
+    width: auto;
+  }
+
+  .footer__tagline {
+    margin-top: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .footer__nav {
     display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .footer__col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 8rem;
+  }
+
+  .footer__heading {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-fg);
+    margin-bottom: 0.25rem;
+  }
+
+  .footer__link {
+    font-size: 0.875rem;
+    color: var(--color-fg-muted);
+    text-decoration: none;
+    padding: 0.125rem 0;
+  }
+
+  .footer__link:hover {
+    color: var(--color-fg);
+    text-decoration: none;
+  }
+
+  .footer__bottom {
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 1.5rem var(--page-margin);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .footer__payment {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .footer__payment svg {
+    height: 1.5rem;
+    width: auto;
+  }
+
+  @media (min-width: 768px) {
+    .footer__inner {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .footer__bottom {
+      flex-direction: row;
+    }
   }
 {% endstylesheet %}
 
@@ -43,8 +159,14 @@
   "settings": [
     {
       "type": "link_list",
-      "id": "menu",
-      "label": "t:labels.menu"
+      "id": "menu_1",
+      "label": "t:labels.menu",
+      "default": "footer"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_2",
+      "label": "t:labels.secondary_menu"
     },
     {
       "type": "checkbox",

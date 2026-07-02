@@ -1,4 +1,9 @@
 {
+  "general": {
+    "navigation": "Navigation",
+    "account": "Account",
+    "menu": "Menu"
+  },
   "404": {
     "title": "404",
     "not_found": "Page not found.",
@@ -10,14 +15,17 @@
     "comment_form_body": "Comment",
     "comment_form_email": "Email",
     "comment_form_name": "Name",
-    "comment_form_submit": "Post",
-    "comment_form_title": "Add a comment"
+    "comment_form_submit": "Post comment",
+    "comment_form_title": "Leave a comment"
   },
   "cart": {
     "checkout": "Checkout",
     "title": "Cart",
-    "update": "Update",
-    "remove": "Remove"
+    "update": "Update cart",
+    "remove": "Remove",
+    "empty": "Your cart is empty.",
+    "continue_shopping": "Continue shopping",
+    "total": "Total"
   },
   "customers": {
     "login": {
@@ -29,6 +37,19 @@
   },
   "collections": {
     "title": "Collections"
+  },
+  "contact": {
+    "title": "Contact us",
+    "description": "Have a question or need help? Send us a message.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send message",
+    "success": "Thanks for your message. We'll get back to you shortly."
+  },
+  "footer": {
+    "tagline": "Motorcycle accessories for every rider.",
+    "rights": "All rights reserved."
   },
   "gift_card": {
     "add_to_apple_wallet": "Add to Apple Wallet",
@@ -42,11 +63,16 @@
     "password": "Password",
     "enter": "Enter"
   },
+  "products": {
+    "add_to_cart": "Add to cart",
+    "variant": "Variant",
+    "quantity": "Quantity"
+  },
   "search": {
     "title": "Search",
-    "placeholder": "Search articles, pages, or products",
+    "placeholder": "Search products, articles, pages...",
     "submit": "Search",
-    "no_results_html": "No results found for {{ terms }}",
-    "results_for_html": "{{ count }} results found for {{ terms }}"
+    "no_results_html": "No results found for \"{{ terms }}\".",
+    "results_for_html": "{{ count }} results for \"{{ terms }}\""
   }
 }

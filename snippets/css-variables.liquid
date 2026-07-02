@@ -1,18 +1,77 @@
+{% doc %}
+  Outputs global CSS custom properties for colors, typography, layout, and
+  dark/light theme support. Uses OS preference via prefers-color-scheme.
+
+  @example
+  {% render 'css-variables' %}
+{% enddoc %}
+
 {% style %}
-  {% # Loads all font variantions with display: swap %}
   {{ settings.type_primary_font | font_face: font_display: 'swap' }}
   {{ settings.type_primary_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
   {{ settings.type_primary_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
   {{ settings.type_primary_font | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
 
   :root {
+    /* Typography */
     --font-primary--family: {{ settings.type_primary_font.family }}, {{ settings.type_primary_font.fallback_families }};
     --font-primary--style: {{ settings.type_primary_font.style }};
     --font-primary--weight: {{ settings.type_primary_font.weight }};
+
+    /* Layout */
     --page-width: {{ settings.max_page_width }};
     --page-margin: {{ settings.min_page_margin }}px;
-    --color-background: {{ settings.background_color }};
-    --color-foreground: {{ settings.foreground_color }};
+
+    /* Accent */
+    --color-accent: {{ settings.accent_color }};
+    --color-accent-hover: {{ settings.accent_color | color_darken: 10 }};
+    --color-accent-fg: #ffffff;
+
+    /* Radii */
+    --radius: 0.5rem;
+    --radius-sm: 0.375rem;
+    --radius-lg: 0.75rem;
     --style-border-radius-inputs: {{ settings.input_corner_radius }}px;
+
+    /* Shadows (minimal for old-laptop compat) */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+
+    /* Light theme (default) */
+    --color-bg: #ffffff;
+    --color-bg-secondary: #F4F4F5;
+    --color-fg: #18181B;
+    --color-fg-muted: #71717A;
+    --color-border: #E4E4E7;
+    --color-card-bg: #ffffff;
+    --color-card-border: #E4E4E7;
+    --color-input-bg: #ffffff;
+    --color-input-border: #D4D4D8;
+    --color-overlay: rgba(0, 0, 0, 0.6);
+
+    /* Legacy compat aliases */
+    --color-background: var(--color-bg);
+    --color-foreground: var(--color-fg);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg: #0C0E16;
+      --color-bg-secondary: #161825;
+      --color-fg: #FAFAFA;
+      --color-fg-muted: #A1A1AA;
+      --color-border: #2E3148;
+      --color-card-bg: #161825;
+      --color-card-border: #2E3148;
+      --color-input-bg: #1E2030;
+      --color-input-border: #2E3148;
+      --color-overlay: rgba(0, 0, 0, 0.7);
+      --color-accent-hover: {{ settings.accent_color | color_lighten: 8 }};
+
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+      --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+    }
   }
 {% endstyle %}
