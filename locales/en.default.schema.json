@@ -34,6 +34,7 @@
     "typography": "Typography"
   },
   "labels": {
+    "accent_color": "Accent color",
     "alignment": "Alignment",
     "background": "Background",
     "foreground": "Foreground",
@@ -42,6 +43,7 @@
     "input_corner_radius": "Input corner radius",
     "layout_direction": "Layout direction",
     "menu": "Menu",
+    "secondary_menu": "Secondary menu",
     "customer_account_menu": "Customer account menu",
     "padding": "Padding",
     "page_margin": "Page margin",
@@ -72,6 +74,30 @@
       "title": "Title",
       "subtitle": "Subtitle",
       "normal": "Normal text"
+    }
+  },
+  "sections": {
+    "hero": {
+      "name": "Hero banner",
+      "settings": {
+        "background_image": "Background image",
+        "heading": "Heading",
+        "subheading": "Subheading",
+        "button_label": "Button label",
+        "button_link": "Button link"
+      }
     },
+    "featured_products": {
+      "name": "Featured products",
+      "settings": {
+        "heading": "Heading",
+        "product_count": "Number of products",
+        "columns": "Columns",
+        "button_label": "Button label"
+      }
+    },
+    "contact": {
+      "name": "Contact form"
+    }
   }
 }
