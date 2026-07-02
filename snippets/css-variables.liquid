@@ -6,17 +6,45 @@
   {% render 'css-variables' %}
 {% enddoc %}
 
+{%- liquid
+  assign heading_font = settings.type_heading_font
+  assign heading_900i = heading_font | font_modify: 'weight', '900' | font_modify: 'style', 'italic'
+  assign heading_800i = heading_font | font_modify: 'weight', '800' | font_modify: 'style', 'italic'
+  assign heading_700i = heading_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic'
+  assign heading_600i = heading_font | font_modify: 'weight', '600' | font_modify: 'style', 'italic'
+  assign heading_500i = heading_font | font_modify: 'weight', '500' | font_modify: 'style', 'italic'
+
+  assign body_font = settings.type_body_font
+  assign body_bold = body_font | font_modify: 'weight', 'bold'
+  assign body_italic = body_font | font_modify: 'style', 'italic'
+  assign body_bold_italic = body_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic'
+-%}
+
 {% style %}
-  {{ settings.type_primary_font | font_face: font_display: 'swap' }}
-  {{ settings.type_primary_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
-  {{ settings.type_primary_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
-  {{ settings.type_primary_font | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
+  /* Heading font — Chivo (Latin Extended) */
+  {{ heading_900i | font_face: font_display: 'swap' }}
+  {{ heading_800i | font_face: font_display: 'swap' }}
+  {{ heading_700i | font_face: font_display: 'swap' }}
+  {{ heading_600i | font_face: font_display: 'swap' }}
+  {{ heading_500i | font_face: font_display: 'swap' }}
+
+  /* Body font — Inter (Latin Extended) */
+  {{ body_font | font_face: font_display: 'swap' }}
+  {{ body_bold | font_face: font_display: 'swap' }}
+  {{ body_italic | font_face: font_display: 'swap' }}
+  {{ body_bold_italic | font_face: font_display: 'swap' }}
 
   :root {
-    /* Typography */
-    --font-primary--family: {{ settings.type_primary_font.family }}, {{ settings.type_primary_font.fallback_families }};
-    --font-primary--style: {{ settings.type_primary_font.style }};
-    --font-primary--weight: {{ settings.type_primary_font.weight }};
+    /* Typography — headings */
+    --font-heading--family: {{ heading_font.family }}, {{ heading_font.fallback_families }};
+
+    /* Typography — body */
+    --font-body--family: {{ body_font.family }}, {{ body_font.fallback_families }};
+
+    /* Legacy alias */
+    --font-primary--family: var(--font-body--family);
+    --font-primary--style: {{ body_font.style }};
+    --font-primary--weight: {{ body_font.weight }};
 
     /* Layout */
     --page-width: {{ settings.max_page_width }};

@@ -12,13 +12,23 @@
     "settings": [
       {
         "type": "header",
-        "content": "t:general.fonts"
+        "content": "t:labels.heading_font"
       },
       {
         "type": "font_picker",
-        "id": "type_primary_font",
+        "id": "type_heading_font",
+        "default": "chivo_n9",
+        "label": "t:labels.heading_font"
+      },
+      {
+        "type": "header",
+        "content": "t:labels.body_font"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
         "default": "inter_n4",
-        "label": "t:general.primary"
+        "label": "t:labels.body_font"
       }
     ]
   },
