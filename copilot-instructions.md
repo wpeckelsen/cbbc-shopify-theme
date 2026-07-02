@@ -1,0 +1,1 @@
+/Users/wessel/vscode/cbbc-shopify-theme/AGENTS.md
