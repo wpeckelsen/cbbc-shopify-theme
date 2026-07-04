@@ -12,19 +12,19 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "heading": "Motorcycle accessories",
-        "subheading": "Quality gear and parts for every ride.",
-        "button_label": "Shop now",
+        "heading": "Motorcykeltilbehør",
+        "subheading": "Kvalitetsudstyr og dele til enhver tur.",
+        "button_label": "Shop nu",
         "button_link": "shopify://collections/all"
       }
     },
     "featured-products": {
       "type": "featured-products",
       "settings": {
-        "heading": "Featured products",
+        "heading": "Udvalgte produkter",
         "product_count": 8,
         "columns": 4,
-        "button_label": "View all products"
+        "button_label": "Se alle produkter"
       }
     }
   },

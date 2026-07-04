@@ -1,78 +1,78 @@
 {
   "general": {
     "navigation": "Navigation",
-    "account": "Account",
+    "account": "Konto",
     "menu": "Menu"
   },
   "404": {
     "title": "404",
-    "not_found": "Page not found.",
-    "back_to_shopping": "Back to shopping"
+    "not_found": "Siden blev ikke fundet.",
+    "back_to_shopping": "Tilbage til shopping"
   },
   "blog": {
-    "article_comments": "Comments",
-    "article_metadata_html": "{{ date }} by {{ author }}",
-    "comment_form_body": "Comment",
-    "comment_form_email": "Email",
-    "comment_form_name": "Name",
-    "comment_form_submit": "Post comment",
-    "comment_form_title": "Leave a comment"
+    "article_comments": "Kommentarer",
+    "article_metadata_html": "{{ date }} af {{ author }}",
+    "comment_form_body": "Kommentar",
+    "comment_form_email": "E-mail",
+    "comment_form_name": "Navn",
+    "comment_form_submit": "Send kommentar",
+    "comment_form_title": "Skriv en kommentar"
   },
   "cart": {
-    "checkout": "Checkout",
-    "title": "Cart",
-    "update": "Update cart",
-    "remove": "Remove",
-    "empty": "Your cart is empty.",
-    "continue_shopping": "Continue shopping",
+    "checkout": "Til kassen",
+    "title": "Kurv",
+    "update": "Opdater kurv",
+    "remove": "Fjern",
+    "empty": "Din kurv er tom.",
+    "continue_shopping": "Fortsæt med at handle",
     "total": "Total"
   },
   "customers": {
     "login": {
-      "email": "Email",
-      "password": "Password",
-      "submit": "Sign in",
-      "title": "Login"
+      "email": "E-mail",
+      "password": "Adgangskode",
+      "submit": "Log ind",
+      "title": "Log ind"
     }
   },
   "collections": {
-    "title": "Collections"
+    "title": "Kollektioner"
   },
   "contact": {
-    "title": "Contact us",
-    "description": "Have a question or need help? Send us a message.",
-    "name": "Name",
-    "email": "Email",
-    "message": "Message",
-    "submit": "Send message",
-    "success": "Thanks for your message. We'll get back to you shortly."
+    "title": "Kontakt os",
+    "description": "Har du et spørgsmål eller brug for hjælp? Send os en besked.",
+    "name": "Navn",
+    "email": "E-mail",
+    "message": "Besked",
+    "submit": "Send besked",
+    "success": "Tak for din besked. Vi vender tilbage til dig hurtigst muligt."
   },
   "footer": {
-    "tagline": "Motorcycle accessories for every rider.",
-    "rights": "All rights reserved."
+    "tagline": "Motorcykeltilbehør til enhver kører.",
+    "rights": "Alle rettigheder forbeholdes."
   },
   "gift_card": {
-    "add_to_apple_wallet": "Add to Apple Wallet",
-    "card": "Gift card",
-    "expired": "This gift card has expired",
-    "expires_on": "Expires on {{ expires_on }}",
-    "use_at_checkout": "Use this gift card at checkout"
+    "add_to_apple_wallet": "Føj til Apple Wallet",
+    "card": "Gavekort",
+    "expired": "Dette gavekort er udløbet",
+    "expires_on": "Udløber den {{ expires_on }}",
+    "use_at_checkout": "Brug dette gavekort i kassen"
   },
   "password": {
-    "title": "This shop is private",
-    "password": "Password",
-    "enter": "Enter"
+    "title": "Denne butik er privat",
+    "password": "Adgangskode",
+    "enter": "Åbn"
   },
   "products": {
-    "add_to_cart": "Add to cart",
+    "add_to_cart": "Læg i kurv",
     "variant": "Variant",
-    "quantity": "Quantity"
+    "quantity": "Antal"
   },
   "search": {
-    "title": "Search",
-    "placeholder": "Search products, articles, pages...",
-    "submit": "Search",
-    "no_results_html": "No results found for \"{{ terms }}\".",
-    "results_for_html": "{{ count }} results for \"{{ terms }}\""
+    "title": "Søg",
+    "placeholder": "Søg efter produkter, artikler, sider...",
+    "submit": "Søg",
+    "no_results_html": "Ingen resultater fundet for \"{{ terms }}\".",
+    "results_for_html": "{{ count }} resultater for \"{{ terms }}\""
   }
 }
